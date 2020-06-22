@@ -1,0 +1,119 @@
+
+
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    font-family: 'Podkova', serif;
+    font-color: white;
+    color: white;
+}
+
+nav{
+overflow:visible
+z-index: 9;
+
+margin-bottom: 40px;
+}
+
+.fixed-nav-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+.tempuser {
+color: black;
+}
+
+.login {
+color :black;
+}
+
+.title {
+ width:100%;
+ background-color:white;
+   text-align: center;
+   color: black;
+}
+
+
+
+#admin{
+margin-right: 35px;
+}
+
+#blogtitle {
+margin-right: 35px;
+margin-left: 20px;
+}
+
+#blogtitle2 {
+margin-left: 35px;
+}
+
+.titlelink{
+color: black;
+text-decoration: underline;
+}
+
+.titlelink:hover {
+color:grey;
+}
+
+.welc {
+padding-top: 50px;
+padding-bottom: 20px;
+}
+
+
+.contentext {
+padding-top: -50px;
+
+}
+
+.footer{
+color: black;
+background-color: #F6F6F6;
+left:0;
+right:0;
+
+}
+.reimage{
+margin-top: 25px;
+margin-bottom: 20px;
+transition: transform .3s;
+}
+
+.reimage:hover {
+  transform: scale(1.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    text-align: center;
+}
+
+.typewriter h1 {
+display: inline-block;
+font-size: 65px;
+ font-size: 5.0vw;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .20em; /* Adjust as needed */
+  animation:
+    typing 1.5s steps(40, end),
+    blink-caret 0.1s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black; }
+}
+

@@ -1,0 +1,18 @@
+<p></p>
+
+{% if messages %}
+<div class="container alertmessage">
+<div class="alert alert-secondary alert-dismissible fade show shadow p-3 mb-5 bg-white rounded" role="alert">
+
+<ul class="messages">
+    {% for message in messages %}
+    <li style="color:black;" {% if message.success %} class="{{ message.success }}" {% endif %}> {{ message }}</li>
+    {% endfor %}
+</ul>
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true"><i class="far fa-times-circle"></i></span>
+  </button>
+</div>
+{% endif %}
+</div>

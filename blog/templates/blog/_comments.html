@@ -1,0 +1,27 @@
+{% if not comment.approved_comment %}
+    {% if user.is_authenticated%}
+        <p><b>Author: </b> {{comment.author}}</p>
+            <p>{{comment.text}}</p>
+<div class="btn-group">
+    <a class="btn btn-warning" type="button" href="{% url 'blog:comment_approve' pk=comment.pk %}">
+        Approve
+    </a>
+  <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'blog:comment_remove' pk=comment.pk %}">Remove</a>
+          <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'blog:comment_update' pk=comment.pk %}">Edit</a>
+
+  </div>
+</div>
+
+    {% endif %}
+
+{% else %}
+    <p><b>Author: </b> {{comment.author}}</p>
+    <p>{{comment.text}}</p>
+            <p><i>Created: </i>{{comment.created_date}}</p>
+{% endif %}
+        <br>

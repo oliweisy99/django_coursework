@@ -1,0 +1,29 @@
+.image1 {
+width:600px;
+
+}
+
+ul {
+list-style-type: none;
+}
+
+strong{
+font-size:130%
+}
+
+
+
+.stage1 {
+color: white;
+background-color: black;
+left:0;
+right:0;
+
+}
+
+
+.backg {
+color:white;
+background-color: white;
+
+}

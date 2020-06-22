@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% extends "blog/blog_base.html" %}
+{% block blog_content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blogdetail.css' %}">
+
+{% include "blog/messages.html" %}
+    {% if user.is_authenticated%}
+<div class="row ">
+    <div class="col-3">
+
+    </div>
+    <div class="col-8 ">
+            <p style="color:black; margin-top:25px;"><a  href="{% url 'blog:update' pk=blog.pk %}" class="btn btn-dark">Update</a> or <a href="{% url 'blog:delete' pk=blog.pk%}" class="btn btn-danger">Delete</a></p>
+
+    </div>
+
+</div>
+
+    {% endif %}
+<div class="container blogdetail">
+    <h1><u>{{blog.title|safe|title}}</u></h1>
+
+<h3><i>Description: </i><strong></strong>{{blog.description|safe}}</h3>
+
+
+<p>{{blog.content|safe}}</p>
+{% if blog.blog_pic %}
+<div id="banner"><img class="img-fluid" src="{{ blog.blog_pic.url}}" id="myImage"></div>
+
+<!--    <p><img  src="{{ blog.blog_pic.url}}" alt="{{ blog.title }}"></p>-->
+{% endif %}
+    <br>
+<p><i>Published: </i>{{blog.published_date}}</p>
+        <br>
+<h3>Create a comment:</h3>
+
+{% load bootstrap4 %}
+  <div class="row ">
+    <div class="col-8">
+        <div class="container">
+            <form action="" method="post" style="color:black;">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                <input type="submit" name="" value="Submit Comment" class="btn btn-dark">
+                {% endbuttons %}
+            </form>
+        </div>
+    </div>
+  </div>
+    <br>
+<h2><u>{{blog.approve_comments.count}} Comment{{blog.approve_comments.count|pluralize}}</u> </h2>
+    {% for comment in blog.comments.all  %}
+    {% include "blog/_comments.html" %}
+    {% empty %}
+    <p style="color:black">Go make a comment!</p>
+    {% endfor %}
+<p></p>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+{% load bootstrap4 %}
+{% load static%}
+<link rel="stylesheet" href="css/extras.css">
+<div class="container" style="margin-top: 50px;">
+    <div class="jumbotron">
+    <h1 style="color:black;">Use the login details in the <a class="titlelink" href="{% url 'blog:temp_user' %}">TempUser</a> page (if you are not the superuser)</h1>
+
+    <div class="login">
+            <form action="" method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <input type="submit" name="" value="Login" class="btn btn-dark">
+            <input type="hidden" name="next" value="{{next}}" class="">
+        {% endbuttons %}
+
+    </form>
+    </div>
+
+</div>
+</div>
+
+
+{% endblock %}

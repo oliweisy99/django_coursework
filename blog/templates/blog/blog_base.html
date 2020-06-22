@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/extras.css' %}">
+<div class="container backg">
+    {% block pre_blog %}
+    
+    {% endblock %}
+    {% block blog_content %}
+    
+    {% endblock %}
+    {% block blog_post %}
+
+    {% endblock %}
+    {% block bio_block %}
+
+    {% endblock %}
+
+</div>
+{% endblock %}

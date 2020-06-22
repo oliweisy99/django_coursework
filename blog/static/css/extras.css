@@ -1,0 +1,19 @@
+.tempuser{
+text-align:center;
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+.backg {
+margin-top: 40px;
+
+}
+
+.titlelink{
+color: black;
+text-decoration: underline;
+}
+
+.titlelink:hover {
+color:grey;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% extends "blog/blog_base.html" %}
+{% block blog_post %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+{% for blog in blog_list %}
+
+<div class="container test">
+  <div class="row justify-content-center">
+    <div class="col-8">
+       <div class="card text-dark bg-light mb-3  mb-3 blogpost2 rounded-0 myborder shadow-lg p-3 mb-5 bg-white rounded" style="max-width: 700px;">
+  <div class="row no-gutters ">
+    <div class="col-md-4 text-center mx-auto d-block">
+        {% if blog.blog_pic %}
+        <a href="{% url 'blog:post' pk=blog.pk %}"><img class="card-img rounded reimage" src="{{ blog.blog_pic.url}}" alt="{{ blog.title }}"></a>
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title tester"><a class="titlelink" href="{% url 'blog:post' pk=blog.pk %}">{{blog.title|safe|title}}</a></h5>
+          <p class="card-text">{{blog.description|safe}}</p>
+        <p class="card-text "><small class="text-muted"><i>Published: </i>{{blog.published_date}}</small></p>
+          <p class="card-text"> comment{{blog.approve_comments.count|pluralize}} <span class="badge badge-pill badge-dark">{{blog.approve_comments.count}}</span></p>
+      </div>
+    </div>
+  </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<br>
+
+
+{% empty %}
+
+<div class="container" style="color:black;">
+    {% if user.is_authenticated%}
+    <p style="color:black;">go make a post</p>
+{% else %}
+<p > No posts to show</p>
+{% endif %}
+</div>
+
+
+
+{% endfor %}
+
+{% if user.is_authenticated%}
+<div class="container">
+    <div class="row">
+    <div class="col-4">
+        <a style="margin-bottom:20px;" href="{% url 'blog:create' %}" class="btn btn-primary">Go make a post</a>
+
+    </div>
+</div>
+</div>
+
+{% endif %}
+
+
+{% endblock %}
