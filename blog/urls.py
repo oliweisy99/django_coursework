@@ -1,7 +1,6 @@
-from django.urls import path
 from . import views
 from django.conf import settings # new
-from django.urls import path, include # new
+from django.urls import path  # new
 from django.conf.urls.static import static # new
 app_name='blog'
 urlpatterns=[
